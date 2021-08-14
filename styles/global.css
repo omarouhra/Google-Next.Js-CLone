@@ -11,4 +11,7 @@
   .languageLink {
     @apply text-purple-900 font-semibold ml-1;
   }
+  .linkFooter {
+    @apply hover:underline text-sm text-gray-600;
+  }
 }
