@@ -1,16 +1,15 @@
 function Footer() {
   return (
-    <footer className='  h-36 w-full bg-gray-200 py-3 md:h-24 md:py-2'>
-      <p className='text-sm text-gray-600 ml-5'>
+    <footer className=' flex flex-col bg-gray-100 px-2 py-3 sm:p-5'>
+      <p className='text-sm text-gray-600 '>
         By{" "}
         <a href='https://www.instagram.com/omar.code/' className='linkFooter'>
           @omar.code
-        </a>{" "}
-        with <span className='animate-ping mx-1'>❤️</span> in{" "}
-        <span className='animate-bounce'>🇲🇦</span>{" "}
+        </a> 
+        <span className='animate-bounce ml-2 text-lg'>🇲🇦</span>{" "}
       </p>
       <hr className='border-gray-300 my-3 md:my-2' />
-      <div className='flex flex-col items-center space-y-5 md:flex-row md:justify-between  md:items-end md:px-5'>
+      <div className=' flex  flex-col  items-center   sm:flex-row sm:justify-between'>
         <div className='space-x-6'>
           <a className='linkFooter' href='#'>
             About

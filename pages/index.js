@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 
 export default function Home() {
   return (
-    <div>
+    <div className='flex flex-col justify-between h-screen'>
       <Head>
         <title>Google Next.js Clone</title>
         <link rel='icon' href='/favicon.ico' />
@@ -33,7 +33,7 @@ export default function Home() {
 
       {/* Body */}
       <main>
-        <form className='flex flex-col justify-center items-center mt-44 px-2  flex-grow '>
+        <form className='flex flex-col justify-center items-center  px-2 flex-grow '>
           <Image
             src='https://www.google.co.uk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
             height={100}
@@ -48,9 +48,17 @@ export default function Home() {
               <MicrophoneIcon className='h-5 text-blue-600' />
             </button>
           </div>
-          <div className='mt-8 flex flex-col w-1/2 space-y-2 justify-center sm:flex-row sm:space-y-0 sm:space-x-4'>
+          <div className='mt-8 flex  space-x-2'>
             <button className='button'>Google Search</button>
             <button className='button'>I'm Feeling Lucky</button>
+          </div>
+
+          <div>
+            <p className="text-xs mt-4">
+              Google offred in:
+              <span className="languageLink">Français</span>
+              <span className="languageLink">العربية</span>
+            </p>
           </div>
         </form>
       </main>
