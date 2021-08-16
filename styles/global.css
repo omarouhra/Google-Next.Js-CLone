@@ -9,7 +9,7 @@
     @apply px-3  py-2 rounded-sm text-sm bg-gray-100 hover:shadow-md;
   }
   .languageLink {
-    @apply text-purple-900 font-semibold ml-1;
+    @apply text-purple-900 font-semibold ml-1 hover:underline;
   }
   .linkFooter {
     @apply hover:underline text-sm text-gray-600;

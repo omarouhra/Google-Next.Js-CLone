@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useRef } from "react";
 import {
   ViewGridIcon,
   SearchIcon,
@@ -6,8 +7,17 @@ import {
 } from "@heroicons/react/outline";
 import Image from "next/image";
 import Footer from "../components/Footer";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter();
+  const searchInputRef = useRef(null);
+  const search = e => {
+    e.preventDefault();
+    const term = searchInputRef.current.value;
+    if (!term) return;
+    router.push(`/search?term=${term}`);
+  };
   return (
     <div className='flex flex-col justify-between h-screen'>
       <Head>
@@ -43,23 +53,34 @@ export default function Home() {
             <button>
               <SearchIcon className='h-4 text-gray-500 ' />
             </button>
-            <input type='text' className='outline-none flex-grow' />
+            <input
+              ref={searchInputRef}
+              type='text'
+              className='outline-none flex-grow'
+            />
             <button>
               <MicrophoneIcon className='h-5 text-blue-600' />
             </button>
           </div>
           <div className='mt-8 flex  space-x-2'>
-            <button className='button'>Google Search</button>
-            <button className='button'>I'm Feeling Lucky</button>
+            <button onClick={search} className='button'>
+              Google Search
+            </button>
+            <button onClick={search} className='button'>
+              I'm Feeling Lucky
+            </button>
           </div>
 
           <div>
-            <p className="text-xs mt-4">
+            <p className='text-xs mt-4'>
               Google offred in:
-              <span className="languageLink">Français</span>
-              <span className="languageLink">العربية</span>
+              <span className='languageLink'>Français</span>
+              <span className='languageLink'>العربية</span>
             </p>
           </div>
+          <button hidden type='submit'>
+            Search
+          </button>
         </form>
       </main>
 
