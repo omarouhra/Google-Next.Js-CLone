@@ -1,3 +1,5 @@
+import PaginationButton from "./PaginationButton";
+
 function SearchResults({ results }) {
   console.log(results);
 
@@ -27,6 +29,7 @@ function SearchResults({ results }) {
           <p>{result.snippet}</p>
         </div>
       ))}
+      <PaginationButton />
     </div>
   );
 }

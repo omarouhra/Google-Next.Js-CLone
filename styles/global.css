@@ -14,4 +14,7 @@
   .linkFooter {
     @apply hover:underline text-sm text-gray-600;
   }
+  .paginationLink {
+    @apply flex flex-col flex-grow items-center cursor-pointer hover:underline;
+  }
 }
