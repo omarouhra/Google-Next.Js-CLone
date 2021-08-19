@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import {
   ViewGridIcon,
   SearchIcon,
@@ -8,6 +8,7 @@ import {
 import Image from "next/image";
 import Footer from "../components/Footer";
 import { useRouter } from "next/router";
+import Menu from "../components/Menu";
 
 export default function Home() {
   const router = useRouter();
@@ -18,6 +19,8 @@ export default function Home() {
     if (!term) return;
     router.push(`/search?term=${term}`);
   };
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className='flex flex-col justify-between h-screen'>
       <Head>
@@ -33,12 +36,18 @@ export default function Home() {
         <a className='link' href='#'>
           Images
         </a>
-        <button className=' relativ h-10 w-10 hover:bg-gray-200 rounded-full p-2'>
+        <button
+          onClick={() => {
+            setIsMenuOpen(!isMenuOpen);
+            console.log(isMenuOpen);
+          }}
+          className=' relative h-10 w-10 hover:bg-gray-200 rounded-full p-2'>
           <ViewGridIcon className=' text-gray-500' />
         </button>
         <button className='px-4 py-2 text-sm md:px-6 bg-blue-600 text-white rounded hover:bg-blue-550 hover:shadow-md'>
           Sign in
         </button>
+        {isMenuOpen ? <Menu /> : null}
       </header>
 
       {/* Body */}
@@ -78,7 +87,7 @@ export default function Home() {
               <span className='languageLink'>العربية</span>
             </p>
           </div>
-          <button hidden type='submit'>
+          <button hidden type='submit' onClick={search}>
             Search
           </button>
         </form>
